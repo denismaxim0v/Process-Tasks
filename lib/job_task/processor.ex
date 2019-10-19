@@ -2,7 +2,6 @@ defmodule JobTask.Processor do
   import Ecto.Query, warn: false
 
   alias JobTask.Tasks
-  alias JobTask.Processor
 
   def parse_task(attrs) do
     %Tasks{}
@@ -40,6 +39,5 @@ defmodule JobTask.Processor do
       end
     end)
     |> Enum.sort_by(fn x -> !is_nil(x.requires) end)
-    |> IO.inspect()
   end
 end
